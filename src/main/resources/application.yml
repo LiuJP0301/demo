@@ -1,0 +1,31 @@
+# 配置自定义端口
+server:
+  port: 8088
+
+  # 配置项目访问根路径
+  servlet:
+    context-path: /test
+
+spring:
+  freemarker:
+    template-loader-path: classpath:/templates/ #设定模板的加载路径，多个以逗号分隔，默认: ["classpath:/templates/"]
+    cache: false #是否开启template caching.
+    charset: utf-8 #指定编码
+    check-template-location: true #是否检查templates路径是否存在.
+    content-type: text/html #设定Content-Type.
+    expose-request-attributes: false #是否在merge模板的时候，将request属性都添加到model中
+    expose-session-attributes: false #是否在merge模板的时候，将HttpSession属性都添加到model中
+    request-context-attribute: request #设定RequestContext attribute的名.
+    suffix: .ftl #指定后缀5
+
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/yonyoutest?characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: 123
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect  #不加这句则默认为myisam引擎
+    database: mysql
